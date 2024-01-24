@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>OTMS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <style>
+            body{
+                margin: 10%;
+                background-color: #bccee8;
+    
+            }
+            label,input{
+                margin: 20px;
+            }
+            div{
+                width: 60%;
+                border: 1px solid black;
+                background-color: white;
+            }
+            .heading{
+                width: 90%;
+                border: 1px solid black;
+                font-size: large;
+                font-weight: bold;
+            }
+            input{
+                width: 30%;
+            }
+           </style>
+    </head>
+
+<body>
+    <!--
+    <center>
+        <div>
+            <h2 class="heading btn btn-primary">Hello Teacher! Please Register with your username and password</h2>
+    <form id="registrationForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Register" class="btn btn-success">
+    </form>
+    </div>
+</center>
+-->
+
+<h2>User Registration</h2>
+    <form action="Tregister.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br><br>
+        
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send SMS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body{
+               background-color: #bccee8;
+               font-weight: bold;
+               margin: 10px;
+               text-align: center !important;
+           }
+           .div1{
+           width: 40%;
+         /*  border: 1px solid black;
+           background-color: white;*/
+           margin-top: 20px;
+           padding: 20px;
+       }
+       input{
+        font-size: 20px;
+       }
+      
+   </style>
+</head>
+<body>
+    <center>
+    <div style="border: 1px solid black; background-color: white;" class="div1">
+   
+   <div style="background-color: black; color: white;"> <h1>Send PTM Request</h1></div>
+    <br>
+    <label>Enter Phone number</label>
+    <input type="number" id="contact">
+    <br><br>
+    <label>Select Date</label>
+    <input type="date" id="date">
+    <br><br>
+    <label>Select Time</label>
+    <input type="time" id="time">
+    <br><br>
+    <button id="sendSMSButton" class="btn btn-success" style="font-weight: bold; font-size: 18px;">Send SMS</button>
+    <br><br>
+    <button id="back" onclick="back()">Back</button>
+</div>
+</center>
+    <script>
+        // JavaScript function to send an SMS with a predefined message
+        function sendPredefinedSMS() {
+            // Replace '1234567890' with the recipient's phone number
+            // var phoneNumber = '918095680947';
+            var phoneNumber = document.getElementById("contact").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+            // Replace 'Hello, this is your predefined message.' with your predefined message
+            var message = 'Dear Parent, \n This is a message to request you to attend the Parents Teachers Meet on '+date+" at "+ time + ". In case of any queries kindly call on the same number. \n Regards, \n Jayesh Kasotiye";
+
+            // Encode the message for a URL
+            var encodedMessage = encodeURIComponent(message);
+
+            // Construct the SMS URL with the recipient's number and message
+            var smsUrl = 'sms:' + phoneNumber + '?body=' + encodedMessage;
+
+            // Open the SMS app with the recipient's number and predefined message
+           window.open(smsUrl, '_self');
+          // window.location.href = smsUrl;
+        }
+
+        // Attach the function to the button's click event
+        document.getElementById('sendSMSButton').addEventListener('click', sendPredefinedSMS);
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title>OTMS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+        
+
+        <style>
+            body{
+                background-color: #bccee8;
+            }
+
+           th, td{
+            padding: 15px;
+           }
+           #submit, #reset{
+            font-size: 15px;
+            font-weight: bold;
+           }
+           div{
+            width: 80%;
+          /*  border: 1px solid black;
+            background-color: white;*/
+           }
+           .lab{
+            font-weight: bold;
+           }
+        </style>
+    </head>
+    <body>
+        <center>
+        <p style="color: red; font-size: 20px; font-weight: bold;">Kindly fill the details mentioned below</p>
+      <div class="div" style="border: 1px solid black; background-color: #fff;">
+        <form id="myForm" method="post" action="processform.php">
+            
+            <table>
+                <tr>
+                    <td class="lab">Enter Full Name</td>
+                    <td><input type="text" name="fname" required></td>
+
+                </tr>
+                
+            <tr>
+                <td class="lab">Contact Number</td>
+                <td><input type="number" name="contact1" required></td>
+            </tr>
+            <tr>
+                <td class="lab">Alternate Contact Number</td>
+                <td><input type="number" name="contact2" ></td>
+            </tr>
+           
+            <tr>
+                <td class="lab">Gender</td>
+                <td><input type="radio" name="gender" value="Male">Male
+                <input type="radio" name="gender" value="Female">Female
+                </td>
+
+            </tr>
+           
+            <tr>
+                <td class="lab">Student address</td>
+                <td><textarea name="saddress" cols="30" rows="3" id="address"  required></textarea></td>
+            </tr>
+
+            <tr>
+                <td class="lab">Select Class</td>
+                <td>
+                <select name="classdropdown" id="class"  required>
+                    <option value="8">8th</option>
+                    <option value="9">9th</option>
+                    <option value="10">10th</option>
+                    <option value="PU1">PU1</option>
+                    <option value="PU2">PU2</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="lab">Choose Subject/s:</td>
+                <td>
+                    <input type="checkbox" name="preference[]" value="Maths">Maths
+                    <input type="checkbox" name="preference[]" value="Science">Science
+                    <input type="checkbox" name="preference[]" value="Economics">Economics
+                    <input type="checkbox" name="preference[]" value="Accountancy">Accountancy
+                    <input type="checkbox" name="preference[]" value="Business Studies">Business Studies
+                    <input type="checkbox" name="preference[]" value="Statistics">Statistics
+                    <input type="checkbox" name="preference[]" value="Computer Science">Computer Science
+                                       
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="lab">Select Branch</td>
+                <td><input type="radio" name="branch" value="Camp">Camp
+                <input type="radio" name="branch" value="Ganeshpur">Ganeshpur
+                </td>
+
+            </tr>
+            <tr>
+                <td class="lab">Email Address</td>
+                <td><input type="semail" name="semail" required></td>
+            </tr>
+            <tr>
+                <td class="lab">Enter Password</td>
+                <td><input type="spassword" name="spassword" required></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" class="btn btn-success"></td>
+                <td><input id="reset" type="reset" value="Reset" class="btn btn-warning" onclick="reset()"></td>
+                <td><button class="btn btn-info"> <a style="color: black; font-weight: bold;" href="https://console.dialogflow.com/api-client/demo/embedded/2586465f-854c-4e2d-84d6-b4bcfd62457c">Help</a> </button></td>
+                <td><button class="btn btn-danger"><a style="font-weight: bold; color: white; text-decoration: none;" href="index.html">Back</a> </button></td>
+            </tr>
+
+        </table>
+
+        </form>
+    </div>
+        </center>
+    </body>
+    <script>
+        function back(){
+            window.location = "index.html"
+        }
+
+        function reset(){
+            var element = document.getElementById("myForm")
+            element.reset()
+        }
+
+ 
+    </script>
+</html>

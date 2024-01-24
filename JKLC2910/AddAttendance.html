@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance</title>
+</head>
+<body>
+    <header>
+        <h1>School Name</h1>
+        <!-- Add your school logo here if applicable -->
+    </header>
+
+    <h2>Student Attendance</h2>
+
+    <label for="date">Select Date:</label>
+    <input type="date" id="date" name="date">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Student 1</td>
+                <td>
+                    <select>
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="excused">Excused</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Student 2</td>
+                <td>
+                    <select>
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="excused">Excused</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- Repeat this row structure for each student -->
+        </tbody>
+    </table>
+
+    <button id="submit">Submit</button>
+
+    <!-- Additional functionality, search and filters can be added here -->
+
+</body>
+</html>

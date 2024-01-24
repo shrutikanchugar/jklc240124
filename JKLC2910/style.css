@@ -1,0 +1,55 @@
+body{
+    background-color: #bccee8 !important;
+}
+
+.heading{
+    font-weight: bold;
+    font-family: 'Black Ops One', cursive;;
+    color: black;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote{
+    border: 10px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.login_box{
+    display: block;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border: 10px solid black;
+    font-weight: bold;
+    border-radius: 10PX;
+    cursor: pointer;
+    
+}
+
+.flex-container2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    line-height: 3;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hoveropt:hover{
+    cursor: pointer;
+}

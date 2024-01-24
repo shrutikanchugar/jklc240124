@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>OTMS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+        <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+
+    </head>
+    <style>
+         body{
+                background-color: #bccee8;
+                font-weight: bold;
+                margin: 10px;
+            }
+            div{
+            width: 40%;
+          /*  border: 1px solid black;
+            background-color: white;*/
+            margin: 20px;
+            padding: 20px;
+        }
+        button{
+            padding: 10px;
+            margin: 10px;
+            width: 60%;
+            border-radius: 10px;
+            background-color: #b2b4c2;
+            color: black;
+            font-size: 20px;
+        }
+
+    </style>
+    <body>
+    <center>
+        <h2 style="font-weight: bold;">Welcome Teacher !</h2>
+        <p style="color: red; font-size: 20px;">Kindly select from the below options</p>
+        <div style="border: 1px solid black; background-color: white;">
+            <button>Edit student details</button><br>
+            <button><a href="TViewstudents.html" style="text-decoration: none; color: black;">View Student Details</a></button><br>
+            <button><a href="process_attendance.html" style="text-decoration: none; color: black;">Attendance</a></button><br>
+            <button><a href="TMarks.html" style="text-decoration: none; color: black;">Marks</a></button><br>
+            <button><a href="TFees.html" style="text-decoration: none; color: black;">Fees</a></button><br>
+            <button><a href="ViewRegStud1.html" style="text-decoration: none; color: black;">View Registered Students</a></button><br>
+            <button onclick="requestptm()">Request PTM</button><br>
+
+        </div>
+    </center>
+    </body>
+    <script>
+        function requestptm(){
+            window.location = "PTM_page.html";
+        }
+    </script>
+</html>

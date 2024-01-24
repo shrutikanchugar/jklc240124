@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>OTMS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+        <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+
+        <style>
+            .heading{
+                background-color: white;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <div>
+                <h3>Send PTM Request</h3>
+                  <h6>add number without space like 17272912606 not <strike>+1 (727) 2912606 </strike></h6>
+        <input id="number" type="numric" placeholder="phone 966506666666" >
+         <input id="name" type="text" placeholder="name" >
+         <input id="msg" type="text" placeholder="type msg" >
+      <button onclick="send_handle()">send</button>
+    </center>
+    </body>
+    <script>
+        function send_handle(){
+
+let num=document.getElementById("number").value;
+
+let msg= document.getElementById("msg").value;
+
+  let name= document.getElementById("name").value;
+
+var win = window.open(`https://wa.me/${num}?text=Hello ${name}%20 This is a reminder for PTM session on 20${msg}`, '_blank');
+// win.focus();
+}
+
+    </script>
+</html>

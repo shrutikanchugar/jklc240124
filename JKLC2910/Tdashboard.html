@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Teacher Dashboard</h2>
+
+    <!-- Display student details -->
+    <h3>Student Details</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Contact</th>
+                <th>Alternate Contact</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Class</th>
+                <th>Branch</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="studentDetails"></tbody>
+    </table>
+
+    <!-- Display test results graph -->
+    <h3>Test Results</h3>
+    <canvas id="testResultsChart" width="400" height="200"></canvas>
+
+    <!-- Display attendance graph -->
+    <h3>Attendance</h3>
+    <canvas id="attendanceChart" width="400" height="200"></canvas>
+
+    <script>
+        // Function to fetch student details from the server
+        async function fetchStudentDetails() {
+            const response = await fetch('fetch_student_details.php');
+            const data = await response.json();
+
+            // Display student details in the table
+            const studentDetailsElement = document.getElementById('studentDetails');
+            data.forEach(student => {
+                const row = `<tr>
+                                <td>${student.student_id}</td>
+                                <td>${student.student_name}</td>
+                                <td>${student.pcontact}</td>
+                                <td>${student.altcontact}</td>
+                                <td>${student.gender}</td>
+                                <td>${student.saddress}</td>
+                                <td>${student.class}</td>
+                                <td>${student.sbranch}</td>
+                                <td>${student.semail}</td>
+                            </tr>`;
+                studentDetailsElement.innerHTML += row;
+            });
+
+            return data;
+        }
+
+        // Function to fetch test results from the server
+        async function fetchTestResults() {
+            const response = await fetch('fetch_test_results.php');
+            const data = await response.json();
+
+            // Prepare data for the test results chart
+            const labels = data.map(entry => entry.student_name);
+            const marks = data.map(entry => entry.marks);
+
+            // Display test results chart
+            const testResultsChart = new Chart(document.getElementById('testResultsChart').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Test Results',
+                        data: marks,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            return data;
+        }
+
+        // Function to fetch attendance data from the server
+        async function fetchAttendanceData() {
+            const response = await fetch('fetch_attendance_data.php');
+            const data = await response.json();
+
+            // Prepare data for the attendance chart
+            const labels = data.map(entry => entry.student_name);
+            const attendanceStatus = data.map(entry => entry.status);
+
+            // Display attendance chart
+            const attendanceChart = new Chart(document.getElementById('attendanceChart').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Attendance',
+                        data: attendanceStatus.map(status => status === 'Present' ? 1 : 0),
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1
+                        }
+                    }
+                }
+            });
+
+            return data;
+        }
+
+        // Fetch data on page load
+        window.onload = async function () {
+            await fetchStudentDetails();
+            await fetchTestResults();
+            await fetchAttendanceData();
+        };
+    </script>
+
+</body>
+</html>
